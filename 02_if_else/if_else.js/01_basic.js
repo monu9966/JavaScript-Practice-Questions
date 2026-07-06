@@ -109,3 +109,44 @@ if (temp > 30) {
 } else {
     console.log("Cool");
 }
+
+//11. Check if a number is divisible by 5 and 11.
+let number1 = 5;
+if (number1 % 5 === 0 && number1 % 11 === 0) {
+    console.log(`${number1} is a divisible by 5 and 11.`);
+} else {
+    console.log(`${number1} is not a divisible by 5 and 11.`);
+}
+
+//12. Check if a character is an alphabet or not.
+let char = "A";
+if ((char >= "A" && char <= "Z" ) || (char >= "a" && char <= "z")) {
+    console.log(`${char} is an alphabet`);
+} else {
+    console.log(`${char} is not an alphabet`);
+}
+
+//13. Check if a character is a vowel or consonant.
+let ch = "q"
+if (ch === "a" || ch === "e" || ch === "i" || ch === "o" || ch === "u" || ch === "A" || ch === "E" || ch === "I" || ch === "O" || ch === "U") {
+    console.log(`${ch} is a vowel`);
+} else {
+    console.log(`${ch} is a constant`);
+}
+
+//14. Check if a character is an uppercase or lowercase alphabet.
+let cha = "a";
+if (cha >= "A" && cha <= "Z") {
+    console.log(`${cha} is an uppercase`);
+} else {
+    console.log(`${cha} is an lowercase`);
+}
+
+//15. Find the minimum of two numbers.
+let num1 = 9;
+let num2 = 10;
+if (num1 <= num2) {
+    console.log(`${num1} is a minimum number`);
+} else {
+    console.log(`${num2} is a minimum number`);
+}
