@@ -11,7 +11,7 @@ else:
 
 #3. Check if a string has exactly 5 characters.
 if len(n) == 5:
-    print("The string has exactly 5 characters.")
+    print("The string has exactly 5 characters.") 
 else:
     print("The string does not have exactly 5 characters.")
 
@@ -51,4 +51,3 @@ if len(str1) == len(str2):
 else:
     print("Both string do not  have same length")
 
-#11. Print the first n characters of a string.
