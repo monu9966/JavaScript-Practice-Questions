@@ -36,7 +36,7 @@ half = len(n) // 2
 print("First half Character:",n[:half])
 
 #8. Print the second half of a string.
-print("First half Character:",n[half:])
+print("second half Character:",n[half:])
 
 #9. Print the middle character of a string.
 middle = len(n) // 2
