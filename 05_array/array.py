@@ -136,3 +136,46 @@ while index < len(arr):
 
 print(arr)
 
+#9. Sort an array in wave form
+#Given a sorted array arr[] of integers (in ascending order), rearrange the elements in-place to form a wave-like array.
+#An array is said to be in wave form if it satisfies the following pattern: arr[0] ≥ arr[1] ≤ arr[2] ≥ arr[3] ≤ arr[4] ≥ ...
+#In other words, every even-indexed element should be greater than or equal to its adjacent odd-indexed elements (if they exist).
+
+def sort_in_wave(arr):
+
+    n = len(arr)
+
+    #swap adjacent elements
+    for i in range(0, n -1, 2):
+        arr[i], arr[i+1] = arr[i+1], arr[i]
+    
+arr = [1, 2, 3, 4, 5]
+sort_in_wave(arr)
+for i in range(0, len(arr)):
+    print(arr[i], end=" ")
+print()
+
+# 10. adding one to number represented as array of digits
+
+#iven a non-negative number represented as an array of digits. The task is to add 1 to the number (increment the number represented by the digits by 1). The digits are stored such that the most significant digit is the first element of the array.]
+
+def add_one(arr):
+
+    carry = 1
+
+    for i in range(len(arr) -1, -1, -1):
+        sum = arr[i] + carry
+        arr[i] = sum % 10
+        carry = sum // 10
+
+    if carry:
+        arr.insert(0, carry)
+    
+    return arr
+arr = [9, 9, 9]
+res = add_one(arr)
+
+for i in res:
+    print(i, end="")
+
+print()
