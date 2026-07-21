@@ -179,3 +179,433 @@ for i in res:
     print(i, end="")
 
 print()
+
+
+# Alternate elements of an array
+
+elements = [10, 20, 30, 40, 50]
+
+#solution 1
+for i in range(0, len(elements), 2):
+    print(elements[i], end=" ")
+
+print()
+
+#solution 1
+ailternate_ele = elements[::2]
+print(*ailternate_ele)
+
+
+# Find all leaders
+arr = [16, 17, 17, 4, 3, 5, 2]
+
+#time complexity O(n*2), sc : O(K) where k is the leaders
+# leaders = []
+# #solution 1
+# for i in range(len(arr)):
+#     is_leader = True
+#     for j in range(i + 1, len(arr)):
+#         if arr[i] < arr[j]:
+#             is_leader = False
+#             break
+#     if is_leader:
+#         leaders.append(arr[i])
+
+# print(*leaders)
+
+#solution 2
+# for i in range(len(arr) - 1):
+#     if arr[i] >= max(arr[i+1::]):
+#         leaders.append(arr[i])
+    
+# print(leaders)
+
+# solution 3
+
+current_Index = 0
+leaders = []
+while(current_Index < len(arr)):
+    is_leader = True
+    for i in range(current_Index+1, len(arr)):
+        if arr[current_Index] < arr[i]:
+            current_Index = i 
+            is_leader = False
+            break
+    if is_leader:
+        leaders.append(arr[current_Index])
+        current_Index += 1
+
+print(leaders)
+
+#Remove duplicates from Sorted Array
+
+#solution 1
+arr = [1, 3, 3, 4, 5]
+
+result = list(set(arr))
+
+print(result)
+
+# Generating All Subarrays
+arr = [1, 2, 3]
+for i in range(len(arr)):
+    for j in range(len(arr) - 1):
+        print(arr[j: j + i + 1], end=" ")
+print() # mt print function for next line
+
+# Array Reverse
+arr = [1, 4, 3, 2, 6, 5]
+for i in range(len(arr) - 1 , -1, -1):
+    print(arr[i], end=" ")
+
+
+print("Hello")
+
+#Rotate an Array - Clockwise or Right
+arr = [1, 2, 3, 4, 5, 6]
+d = 2
+
+def rotatrArr(arr:list):
+    temp = arr[-1]
+
+    for i in range(len(arr) -1, 0, -1):
+        arr[i] = arr[i-1]
+        arr[0] = temp
+        print(arr)
+
+#swapper two elements
+
+position1 = "Monu"
+position2 = "Ritu"
+
+print(position1, position2)
+temp = position1
+position1 = position2
+position2 = temp
+print(position1, position2)
+
+position1, position2 = position2, position1
+print(position1, position2)
+
+# rotate array elements clockwise d times
+def rotateArr(arr:list)-> None:
+    temp = arr[-1]
+
+    for i in range(len(arr) -1, 0, -1):
+        arr[i] = arr[i-1]
+
+    arr[0] = temp
+
+n = 4
+
+print("Original Array")
+arr = [1,2,3,4,5,6]
+
+temp = 1
+print(arr)
+l = len(arr)
+
+for _ in range(n):
+    rotateArr(arr=arr)
+    print(arr)
+
+step = n%len(arr)
+print(step)
+
+position = [-1]*len(arr)
+
+print("Position")
+print(position)
+
+for i in range(len(arr)):
+    p = (i+step)%len(arr)
+    position[i] = p
+
+print(position)
+# temp = arr[-1]
+
+# for i in range(len(arr) -1, 0, -1):
+#     arr[i] = arr[i-1]
+
+# arr[0] = temp
+
+# print(arr)
+
+# print("Rotation 2")
+# temp = arr[-1]
+
+# for i in range(len(arr) -1, 0, -1):
+#     arr[i] = arr[i-1]
+# arr[0] = temp
+# print(arr)
+
+
+# Zeros to End
+arr = [0, 0, 0, 2, 0, 4, 0, 5]
+index = 0
+#solution 1
+# Move all non-zero elements to the front
+for i in range(len(arr)):
+    if arr[i] != 0:
+        arr[index] = arr[i]
+        index += 1
+
+# Fill the remain+
+# ing positions with 0
+while index < len(arr):
+    arr[index] = 0
+    index += 1
+
+print(arr)
+
+#Solution 2
+arr = [1, 2, 0, 4, 3, 0, 8, 0, 0, 9]
+j = 0
+
+for i in range(len(arr)):
+    if arr[i] != 0:
+        arr[i], arr[j] = arr[j], arr[i]
+        j += 1
+    
+print(arr)
+
+
+# solution 3
+arr = [0, 2, 0, 4, 2]
+for i in range(len(arr)):
+    if arr[i] == 0:
+        arr.pop(i) #0(n)
+        arr.append(0) #0(1)
+print(arr)
+
+# Solution 4
+# Two Pointer
+arr = [0, 0, 1,3,5, 0,9, 5]
+zero_index = 0
+for i in range(len(arr)-1):
+    if arr[i] == 0 and arr[i+1] != 0:
+        #swap
+        arr[i+1], arr[zero_index] = arr[zero_index], arr[i+1]
+        zero_index +=1
+    elif arr[i] == 0 and arr[i+1] == 0:
+        pass
+    else:
+        zero_index += 1
+    
+print(arr)
+
+#s4
+temp = [0]*len(arr)
+print(temp)
+
+curr = 0
+for i in arr:
+    if i != 0:
+        temp[curr] = i
+        curr += 1
+    print(temp)
+
+#Palindrome
+# s1
+data = "mam" 
+if data == data[::-1]:
+    print("palindrome")
+else:
+    print("Not a palindrome")
+
+#s2
+if data[:len(data)//2] == data[len(data)//2:][::-1]:
+    print("Palindrome")
+else:
+    print("Not a palindrome")
+
+#s3
+i = 0
+j = len(data)-1
+
+is_palindrome = True
+while(i<=j):
+    if data[i] == data[j]:
+        i+=1
+        j-=1
+    else:
+        is_palindrome = False
+        break
+
+if is_palindrome:
+    print("Palindrome")
+else:
+    print("Not a Palindrome")
+
+#Q.  Minimum increment by k operations to make all equal
+
+arr = [4, 7, 19, 16]
+
+k = 3
+
+highest = max(arr)
+operations = 0
+for i in arr:
+    if (highest - i)%k == 0:
+        operations += (highest - i)// k
+    else:
+        operations = -1
+        break
+
+print(operations)
+
+
+#Minimum cost to make array size 1 by removing larger of pairs
+#s1
+"""
+arr = [4,3,2] # non repeating integers
+ i=j
+  j  4      3      2
+i 4 (4,4)  (4,3)  (4,2)
+  3 (3,4)  (3,3)  (3,2)
+  2 (2,4)  (2,3)  (2,2)
+
+
+arr = [1,2,3,4]
+  j 4,   3,     2     1
+i 1 (1,1) (1,2) (1,3) (1,4)
+  2 (2,1) (2,2) (2,3) (2,4)
+  3 (3,1) (3,2) (3,3) (3,4)
+  4 (4,1) (4,2) (4,3) (4,4)
+
+sort arr in descending order
+i from 0->2
+j from i+1, 2
+
+
+total_cost = 0 # 1+2+3 = 6
+
+i from 0->2
+  cost = 1 # 1
+  j from i+1 , 2
+    curr_cost = min(arr[i], arr[j])
+    cost = min(cost, curr_cost) # 1
+  total_cost += cost
+
+
+
+
+cost = min(arr[i], arr[j])
+
+(4,3) => 3
+(4,2) => 2
+(3,2) => 2
+
+"""
+
+
+#s2
+
+arr = [3,5,6]
+arr = sorted(arr, reverse=True) #descending
+total_cost = 0
+print(arr)
+for i in range(len(arr)-1):
+  cost = arr[i]
+  for j in range(i+1, len(arr)):
+    cost = min(cost, arr[j])
+  total_cost += cost
+print(total_cost)
+
+
+# s3
+arr = [10,2,5,1,4,3] # non repeating
+
+min_cost = min(arr) #1
+total_cost = 0
+for i in arr:
+  if i!=min_cost:
+    total_cost += min_cost
+print(total_cost)
+
+# s4
+arr = [10, 2,5,1,4,3]
+
+min_cost = min(arr)  # 0(n)
+
+total_cost = min_cost * (len(arr)-1)
+
+print(total_cost)
+
+ 
+
+# find if the array contains any duplicate
+a = [1, 2, 2, 1, 4, 5]
+
+def check_duplicate(arr:list)->bool:
+  for i in range(len(arr)-1):
+    for j in range(i+1, len(arr)):
+      if arr[i]==arr[j]:
+        return True
+  return False
+# has_duplicate = False
+# for i in range(len(a)-1):
+#   for j in range(i+1, len(a)):
+#     if a[i]==a[j]:
+#       has_duplicate = True
+#       break
+
+# print(has_duplicate)
+
+
+# s2
+
+#     0, 1, 2, 3, 4, 5
+a =  [1, 2, 8, 0,5,3,6,1]
+#     i----i+k
+
+k = 6
+
+has_duplicate = False
+for i in range(len(a)-k+1):
+  window_start = i
+  window_end = i+k # end is exlcusive
+  for j in range(window_start, window_end-1):
+    for k in range(j+1, window_end):
+      if a[j]==a[k]:
+        has_duplicate = True
+        break
+    if has_duplicate:
+      break
+  if has_duplicate:
+    break
+
+print(has_duplicate)
+
+#s3
+
+#     0, 1, 2, 3, 4, 5
+a =  [1, 2, 8,8, 0,5,3,6,1]
+#        i----i+k
+
+k = 6
+def check_duplicate(arr:list)->bool:
+  for i in range(len(arr)-1):
+    for j in range(i+1, len(arr)):
+      if arr[i]==arr[j]:
+        return True
+  return False
+
+has_duplicate = False
+for i in range(len(a)-k+1):
+  window_start = i
+  window_end = i+k # end is exlcusive
+  window = a[window_start: window_end]
+  result = check_duplicate(window)
+  if result:
+    has_duplicate = True
+    break
+
+if has_duplicate:
+  print("Duplicate")
+else:
+  print("No duplicates")
+
+
+
+#duplicates in array 
